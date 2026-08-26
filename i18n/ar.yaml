@@ -1,0 +1,41 @@
+- id: last_mod_on
+  translation: آخر تعديل في {{ .Format "2006-01-02" }}
+
+- id: format_date
+  translation: '{{ .Format "2006-01-02" }}'
+
+- id: format_date_tosec
+  translation: '{{ .Format "2006-01-02 15:04" }}'
+
+- id: next_link
+  translation: التالي
+
+- id: prev_link
+  translation: السابق
+
+- id: no_newer_posts
+  translation: لا توجد منشورات أحدث.
+
+- id: no_older_posts
+  translation: لا توجد منشورات أقدم.
+
+- id: comments_disabled
+  translation: التعليقات معطّلة.
+
+- id: comments_activate_js
+  translation: يرجى تفعيل JavaScript لعرض التعليقات.
+
+- id: hugo_theme
+  translation: قالب Hugo
+
+- id: ported_from
+  translation: منقول من
+
+- id: by
+  translation: بواسطة
+
+- id: draft
+  translation: مسودة
+
+- id: toc_title
+  translation: الفهرس
