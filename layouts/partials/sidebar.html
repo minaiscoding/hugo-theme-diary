@@ -4,16 +4,22 @@
     {{ else }}
     <a class="a-block nav-head false" href="{{ "" | absLangURL }}">
     {{ end }}
-        <div class="nav-title">
-            {{.Site.Title}}
+        <div class="nav-title-row">
+            
+            <div class="nav-title">
+                {{.Site.Title}}
+            </div>
         </div>
         {{ with .Site.Params.subtitle }}
         <div class="nav-subtitle">
             {{.}}
+            
         </div>
+        
         {{ end }}
     </a>
 
+            
     <div class="nav-link-list">
         {{ $current := .RelPermalink | absLangURL }}
         {{ range .Site.Menus.main }}
@@ -41,7 +47,17 @@
     </div>
 
     
-
+    <div>
+        <img src="{{ "images/cover.jpg" | absURL }}" alt="" id="navimg">
+            <style>
+                #navimg {
+                   
+                    width: 90%;
+                    height: auto;
+                    margin: 5px;
+                }
+            </style>
+    </div>
     <div class="nav-footer">
         {{partial "copyright.html" .}}
     </div>

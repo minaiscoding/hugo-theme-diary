@@ -1,5 +1,32 @@
 <div id="extraContainer" class="extra-container">
+    
+                <!-- Sidebar image -->
+
+        
     <div class="toc-wrapper">
+
+
+        <!-- Site search -->
+        <div class="site-search">
+            <input type="search" id="siteSearchInput" placeholder="Search…" autocomplete="off">
+            <div id="siteSearchResults" class="site-search-results"></div>
+        </div>
+        <style>
+            .site-search { width: 100%; padding: 20px 16px 0 16px; box-sizing: border-box; position: relative; }
+            .site-search input[type="search"] { width: 100%; box-sizing: border-box; padding: 8px 12px; border: 1px solid rgba(128,128,128,0.3); border-radius: 4px; font-family: inherit; font-size: 14px; background: transparent; color: inherit; outline: none; transition: border-color 0.2s; }
+            .site-search input[type="search"]:focus { border-color: rgb(90, 72, 3) }
+            .site-search-results { display: none; position: absolute; top: 100%; left: 16px; right: 16px; max-height: 320px; overflow-y: auto; background: #fff; border: 1px solid rgba(128,128,128,0.3); border-radius: 4px; margin-top: 4px; z-index: 50; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+            body.night .site-search-results { background: #282828; border-color: rgba(255,255,255,0.15); }
+            .search-result-item { display: block; padding: 8px 12px; text-decoration: none; color: inherit; border-bottom: 1px solid rgba(128,128,128,0.15); }
+            .search-result-item:last-child { border-bottom: none; }
+            .search-result-item:hover { background: rgba(25,118,210,0.08); }
+            .search-result-title { font-weight: 600; font-size: 14px; }
+            .search-result-summary { font-size: 12px; opacity: 0.7; margin-top: 2px; }
+            .search-no-results { padding: 10px 12px; font-size: 13px; opacity: 0.6; }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+        <script src="{{ "js/search.js" | relURL }}"></script>
+
         {{ if and (isset .Site.Params "googlesearchcode") (.IsHome) }}
         <script async src="https://cse.google.com/cse.js?cx={{.Site.Params.googleSearchCode}}"></script>
         <div class="gcse-searchbox-only" mobileLayout="true"></div>
@@ -8,9 +35,12 @@
         {{ if and (not (.Params.disableToC) ) (.IsPage) }}
         <div class="toc">
             {{- partial "toc.html" . -}}
-        </div>
+       
+
+        
         {{ end }}
     </div>
+
     <div class="pagination">
         <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
             :class="{ invisible: scrollY == 0 }">
@@ -27,7 +57,6 @@
         {{ end }}
         {{ if and (.Page.IsNode) (.Page.Paginator) (not (.Data.Terms)) }}
         {{ if gt .Paginator.TotalPages 1 }}
-
         <a class="pagination-action" {{ if .Paginator.HasPrev }} href="{{.Paginator.Prev.URL}}">
             {{ else }}
             style="visibility:hidden">
@@ -36,15 +65,13 @@
                 chevron_left
             </i>
         </a>
-
         <div class="pagination-indicator">
             <span style="text-align: center">
                 {{.Paginator.PageNumber}}<br>
                 <div style="display: inline-block; transform: rotate(-28deg)">-</div><br>{{.Paginator.TotalPages}}
             </span>
+            
         </div>
-
-
         <a class="pagination-action" {{ if .Paginator.HasNext }} href="{{.Paginator.Next.URL}}">
             {{ else }}
             style="visibility:hidden">
@@ -53,7 +80,9 @@
                 chevron_right
             </i>
         </a>
+        
         {{ end }}
         {{ end }}
     </div>
+
 </div>
